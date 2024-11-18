@@ -1,0 +1,1 @@
+log_file = 'output3.log'
