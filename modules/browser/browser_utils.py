@@ -8,9 +8,9 @@ def start_chrome():
         if sys.platform.startswith('win'):  # Windows
             chrome_path = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
         elif sys.platform.startswith('linux'):  # Linux
-            chrome_path = '/usr/bin/google-chrome'
+            chrome_path = r'/usr/bin/google-chrome'
         elif sys.platform.startswith('darwin'):  # macOS
-            chrome_path = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+            chrome_path = r'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
         subprocess.Popen([chrome_path, r"--remote-debugging-port=9222"])
         time.sleep(5)
     except FileNotFoundError:
@@ -19,7 +19,7 @@ def start_chrome():
 
 
 def initialize_browser():
-    print('[DEV] Initialisiere pychrome mit dem Chrome Browser Debugging Modus (Port: 9222)')
+    print('[Dev] Initialisiere pychrome mit dem Chrome Browser Debugging Modus (Port: 9222)')
     browser = pychrome.Browser(url="http://localhost:9222")
     try:
         tabs = browser.list_tab()

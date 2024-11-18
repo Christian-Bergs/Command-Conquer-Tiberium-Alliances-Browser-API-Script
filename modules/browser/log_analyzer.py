@@ -1,4 +1,5 @@
 import re
+import os
 
 def extract_first_session(log_file_path):
     try:
@@ -7,11 +8,11 @@ def extract_first_session(log_file_path):
             session_match = re.search(r"var SessionId='([a-zA-Z0-9\-]+)';", content)
             if session_match:
                 session_value = session_match.group(1)
-                print(f"[Info] Erster gefundener Session-Wert: {session_value}")
+                print(f"[Info] Erster gefundener Session-Wert: {session_value}")               
                 return session_value
             else:
-                print("Kein Session-Wert gefunden.")
+                print("[Info] Kein Session-Wert gefunden.")
     except FileNotFoundError:
-        print("Die angegebene Log-Datei wurde nicht gefunden.")
+        print("[Error] Die angegebene Log-Datei wurde nicht gefunden.")
     except Exception as e:
-        print(f"Es ist ein Fehler aufgetreten: {e}")
+        print(f"[Error] Es ist ein Fehler aufgetreten: {e}")
